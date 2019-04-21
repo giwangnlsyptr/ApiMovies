@@ -19,6 +19,7 @@ import java.util.List;
 public class MoviesAdapter extends RecyclerView.Adapter<MoviesAdapter.Holder> {
     private List<ResultsItem> resultsItemList;
     private Context context;
+    private static final String BASE_URL = "http://image.tmdb.org/t/p/w185";
 
     public MoviesAdapter(Context context, List<ResultsItem> resultsItemList) {
         this.context = context;
@@ -57,17 +58,18 @@ public class MoviesAdapter extends RecyclerView.Adapter<MoviesAdapter.Holder> {
         }
 
         public void bind(final int position) {
+            //Glide.with(context).load(BASE_URL+resultsItemList.get(position).getPosterPath()).into(imgArtikel);
             Picasso.get()
-                    .load(resultsItemList.get(position).getPosterPath())
+                    .load(BASE_URL+resultsItemList.get(position).getPosterPath())
                     .placeholder(R.mipmap.ic_launcher)
                     .error(R.mipmap.ic_launcher)
                     .into(imgArtikel);
             tvJudul.setText(resultsItemList.get(position).getTitle());
             tvTanggal.setText(resultsItemList.get(position).getReleaseDate());
+            //Glide.with(context).load(BASE_URL+resultsItemList.get(position).getPosterPath());
             openEdukasi.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-
                     Toast.makeText(context, "clicked : " + tvJudul.getText().toString() + "\n Position : " + String.valueOf(position),
                             Toast.LENGTH_LONG).show();
                 }
