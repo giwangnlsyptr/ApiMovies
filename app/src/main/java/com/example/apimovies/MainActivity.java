@@ -1,9 +1,9 @@
 package com.example.apimovies;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.ActionBar;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.GridLayoutManager;
-import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.widget.Toast;
 
@@ -17,6 +17,7 @@ public class MainActivity extends AppCompatActivity implements MainView {
     private RecyclerView recyclerView;
     private MoviesAdapter moviesAdapter;
     private MainPresenter mainPresenter;
+    private ActionBar toolbar;
     private String API_KEY = "d3d53dc7c6c5979947428171320d1a93";
     private String language = "en-US";
     private int page = 1;
@@ -27,6 +28,8 @@ public class MainActivity extends AppCompatActivity implements MainView {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        toolbar = getSupportActionBar();
+        toolbar.setTitle("Popular Movies");
         recyclerView = findViewById(R.id.recyclerview);
         mainPresenter = new MainPresenter(this,this);
         mainPresenter.loadMovies(API_KEY, language, page, region);

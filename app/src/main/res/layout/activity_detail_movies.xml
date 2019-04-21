@@ -4,11 +4,66 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".DetailMoviesActivity">
+    tools:context=".DetailMoviesActivity"
+    android:background="@android:color/white">
 
         <ImageView
+            android:id="@+id/backdrop"
             android:layout_width="match_parent"
-            android:layout_height="250dp"
+            android:layout_height="230dp"
             android:src="@mipmap/ic_launcher"/>
+        <ImageView
+            android:id="@+id/poster"
+            android:layout_marginTop="70dp"
+            android:layout_marginLeft="30dp"
+            android:layout_width="130dp"
+            android:layout_height="223dp"
+            android:src="@mipmap/ic_launcher"/>
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/poster"
+            android:layout_below="@id/backdrop"
+            android:paddingTop="10dp"
+            android:paddingLeft="10dp"
+            android:text="JUDUL"
+            android:textSize="30dp"
+            android:textStyle="bold"
+            android:textColor="@android:color/black"/>
+        <TextView
+            android:id="@+id/releasedate"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/poster"
+            android:layout_below="@id/title"
+            android:paddingLeft="10dp"
+            android:text="2019"
+            android:textStyle="bold"
+            android:textSize="18dp"
+            android:textColor="@android:color/black"/>
+        <TextView
+            android:id="@+id/ov"
+            android:layout_marginTop="25dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/poster"
+            android:text="OVERVIEW"
+            android:textStyle="bold"
+            android:textSize="18dp"
+            android:textColor="@android:color/black"
+            android:padding="20dp"
+            android:background="@color/gray"/>
+
+        <TextView
+            android:id="@+id/overview"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@id/ov"
+            android:background="@color/gray"
+            android:paddingLeft="20dp"
+            android:text="@string/app_name"
+            android:textColor="@android:color/black"
+            android:textSize="12dp" />
 
 </RelativeLayout>
