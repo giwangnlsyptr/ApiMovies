@@ -5,12 +5,12 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".DetailMoviesActivity"
-    android:background="@android:color/white">
+    android:background="@android:color/black">
 
         <ImageView
             android:id="@+id/backdrop"
             android:layout_width="match_parent"
-            android:layout_height="230dp"
+            android:layout_height="200dp"
             android:src="@mipmap/ic_launcher"/>
         <ImageView
             android:id="@+id/poster"
@@ -27,10 +27,11 @@
             android:layout_below="@id/backdrop"
             android:paddingTop="10dp"
             android:paddingLeft="10dp"
+            android:lines="2"
             android:text="JUDUL"
-            android:textSize="30dp"
+            android:textSize="25dp"
             android:textStyle="bold"
-            android:textColor="@android:color/black"/>
+            android:textColor="@android:color/white"/>
         <TextView
             android:id="@+id/releasedate"
             android:layout_width="match_parent"
@@ -41,7 +42,7 @@
             android:text="2019"
             android:textStyle="bold"
             android:textSize="18dp"
-            android:textColor="@android:color/black"/>
+            android:textColor="@android:color/white"/>
         <TextView
             android:id="@+id/ov"
             android:layout_marginTop="25dp"

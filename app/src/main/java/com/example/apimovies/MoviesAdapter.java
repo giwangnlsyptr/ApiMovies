@@ -1,6 +1,7 @@
 package com.example.apimovies;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.app.ActionBar;
 import android.support.v7.widget.RecyclerView;
@@ -55,7 +56,7 @@ public class MoviesAdapter extends RecyclerView.Adapter<MoviesAdapter.Holder> {
             ivPoster = itemView.findViewById(R.id.poster);
             tvJudul = itemView.findViewById(R.id.judul);
             tvTanggal = itemView.findViewById(R.id.tanggal);
-            detail = itemView.findViewById(R.id.openEdukasi);
+            detail = itemView.findViewById(R.id.detail);
         }
 
         public void bind(final int position) {
@@ -69,8 +70,14 @@ public class MoviesAdapter extends RecyclerView.Adapter<MoviesAdapter.Holder> {
             detail.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    //Intent intent = new Intent(context, DetailMoviesActivity.class);
-                    //context.startActivity(intent);
+                    Intent intent = new Intent(context, DetailMoviesActivity.class);
+                    intent.putExtra("title", resultsItemList.get(position).getTitle());
+                    intent.putExtra("releasedate", resultsItemList.get(position).getReleaseDate().split("-")[0]);
+                    intent.putExtra("poster", resultsItemList.get(position).getPosterPath());
+                    intent.putExtra("backdrop", resultsItemList.get(position).getBackdropPath());
+                    intent.putExtra("overview", resultsItemList.get(position).getOverview());
+                    intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                    context.startActivity(intent);
                     Toast.makeText(context, tvJudul.getText().toString(), Toast.LENGTH_LONG).show();
                 }
             });
